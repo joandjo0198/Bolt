@@ -42,15 +42,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onToggleMode }) => {
           <p className="text-gray-600 mt-2">Sign in to your account</p>
         </div>
 
-        <div className="mb-6 p-4 bg-blue-50 rounded-lg">
-          <h3 className="font-semibold text-blue-900 mb-2">Demo Accounts:</h3>
-          <div className="text-sm text-blue-800 space-y-1">
-            <p><strong>Admin:</strong> admin@example.com / password</p>
-            <p><strong>User:</strong> user@example.com / password</p>
-            <p><strong>Moderator:</strong> moderator@example.com / password</p>
-          </div>
-        </div>
-
         {error && (
           <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-md">
             <p className="text-red-600 text-sm">{error}</p>
@@ -100,6 +91,26 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onToggleMode }) => {
               >
                 {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
               </button>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <input
+                id="remember-me"
+                name="remember-me"
+                type="checkbox"
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              />
+              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
+                Remember me
+              </label>
+            </div>
+
+            <div className="text-sm">
+              <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">
+                Forgot your password?
+              </a>
             </div>
           </div>
 

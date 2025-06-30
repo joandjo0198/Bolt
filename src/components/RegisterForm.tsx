@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { RegisterCredentials } from '../types/auth';
-import { Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, User, Check } from 'lucide-react';
 
 interface RegisterFormProps {
   onToggleMode: () => void;
@@ -14,6 +14,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onToggleMode }) => {
     email: '',
     password: '',
     confirmPassword: '',
+    acceptTerms: false,
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -27,6 +28,11 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onToggleMode }) => {
       setError('Passwords do not match');
       return;
     }
+
+    if (!credentials.acceptTerms) {
+      setError('You must accept the terms and conditions');
+      return;
+    }
     
     try {
       await register(credentials);
@@ -36,9 +42,10 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onToggleMode }) => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
     setCredentials(prev => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   };
 
@@ -144,6 +151,32 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onToggleMode }) => {
               >
                 {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
               </button>
+            </div>
+          </div>
+
+          <div className="flex items-start">
+            <div className="flex items-center h-5">
+              <input
+                id="acceptTerms"
+                name="acceptTerms"
+                type="checkbox"
+                checked={credentials.acceptTerms}
+                onChange={handleChange}
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                required
+              />
+            </div>
+            <div className="ml-3 text-sm">
+              <label htmlFor="acceptTerms" className="text-gray-700">
+                I agree to the{' '}
+                <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">
+                  Terms and Conditions
+                </a>{' '}
+                and{' '}
+                <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">
+                  Privacy Policy
+                </a>
+              </label>
             </div>
           </div>
 
