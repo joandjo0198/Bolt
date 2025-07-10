@@ -10,6 +10,8 @@ import { AdminPanel } from './components/AdminPanel';
 import { LeadsModule } from './components/CRMModules/LeadsModule';
 import { ContactsModule } from './components/CRMModules/ContactsModule';
 import { AnalyticsModule } from './components/CRMModules/AnalyticsModule';
+import { ModuleBuilder } from './components/ModuleBuilder/ModuleBuilder';
+import { SettingsPanel } from './components/Settings/SettingsPanel';
 
 const AuthenticatedApp: React.FC = () => {
   const [currentView, setCurrentView] = useState('dashboard');
@@ -21,6 +23,10 @@ const AuthenticatedApp: React.FC = () => {
 
   const renderCurrentView = () => {
     switch (currentView) {
+      case 'module-builder':
+        return <ModuleBuilder />;
+      case 'settings':
+        return <SettingsPanel />;
       case 'admin':
         return <AdminPanel />;
       case 'leads':

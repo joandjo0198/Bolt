@@ -12,7 +12,9 @@ import {
   Mail,
   Phone,
   DollarSign,
-  TrendingUp
+  TrendingUp,
+  Plus,
+  Package
 } from 'lucide-react';
 
 interface NavigationProps {
@@ -26,6 +28,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentView, onViewChang
   const getNavigationItems = () => {
     const baseItems = [
       { id: 'dashboard', label: 'Dashboard', icon: Home },
+      { id: 'module-builder', label: 'Module Builder', icon: Package },
       { id: 'leads', label: 'Leads', icon: Target },
       { id: 'contacts', label: 'Contacts', icon: Users },
       { id: 'deals', label: 'Deals', icon: DollarSign },
@@ -33,6 +36,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentView, onViewChang
       { id: 'campaigns', label: 'Campaigns', icon: Mail },
       { id: 'reports', label: 'Reports', icon: BarChart3 },
       { id: 'analytics', label: 'Analytics', icon: TrendingUp },
+      { id: 'settings', label: 'Settings', icon: Settings },
     ];
 
     if (user?.role === 'admin') {

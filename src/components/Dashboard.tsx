@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Users, Shield, Settings, BarChart3, FileText, Calendar } from 'lucide-react';
+import { Users, Shield, Settings, BarChart3, FileText, Calendar, Package, Plus } from 'lucide-react';
 
 export const Dashboard: React.FC = () => {
   const { user } = useAuth();
@@ -18,6 +18,7 @@ export const Dashboard: React.FC = () => {
 
   const getAvailableFeatures = () => {
     const baseFeatures = [
+      { icon: Package, title: 'Module Builder', description: 'Create custom modules with drag-and-drop builder' },
       { icon: FileText, title: 'My Documents', description: 'View and manage your documents' },
       { icon: Calendar, title: 'Schedule', description: 'Manage your calendar and appointments' },
     ];
