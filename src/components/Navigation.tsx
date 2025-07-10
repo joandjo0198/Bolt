@@ -42,13 +42,6 @@ export const Navigation: React.FC<NavigationProps> = ({ currentView, onViewChang
     if (user?.role === 'admin') {
       baseItems.push(
         { id: 'admin', label: 'Admin Panel', icon: Shield },
-        { id: 'users', label: 'User Management', icon: Users },
-      );
-    }
-
-    if (user?.role === 'moderator' || user?.role === 'admin') {
-      baseItems.push(
-        { id: 'moderation', label: 'Moderation', icon: Settings },
       );
     }
 
@@ -60,7 +53,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentView, onViewChang
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex space-x-1 overflow-x-auto">
+        <div className="flex space-x-1">
           {navigationItems.map((item) => {
             const Icon = item.icon;
             const isActive = currentView === item.id;

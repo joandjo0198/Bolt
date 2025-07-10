@@ -37,30 +37,38 @@ const AuthenticatedApp: React.FC = () => {
         return <AnalyticsModule />;
       case 'deals':
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <h1 className="text-3xl font-bold text-gray-900">Deals</h1>
-            <p className="text-gray-600 mt-2">Manage your sales pipeline and deals</p>
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <h1 className="text-3xl font-bold text-gray-900">Deals</h1>
+              <p className="text-gray-600 mt-2">Manage your sales pipeline and deals</p>
+            </div>
           </div>
         );
       case 'activities':
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <h1 className="text-3xl font-bold text-gray-900">Activities</h1>
-            <p className="text-gray-600 mt-2">Track your sales activities and tasks</p>
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <h1 className="text-3xl font-bold text-gray-900">Activities</h1>
+              <p className="text-gray-600 mt-2">Track your sales activities and tasks</p>
+            </div>
           </div>
         );
       case 'campaigns':
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <h1 className="text-3xl font-bold text-gray-900">Campaigns</h1>
-            <p className="text-gray-600 mt-2">Manage your marketing campaigns</p>
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <h1 className="text-3xl font-bold text-gray-900">Campaigns</h1>
+              <p className="text-gray-600 mt-2">Manage your marketing campaigns</p>
+            </div>
           </div>
         );
       case 'reports':
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <h1 className="text-3xl font-bold text-gray-900">Reports</h1>
-            <p className="text-gray-600 mt-2">Generate and view detailed reports</p>
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <h1 className="text-3xl font-bold text-gray-900">Reports</h1>
+              <p className="text-gray-600 mt-2">Generate and view detailed reports</p>
+            </div>
           </div>
         );
       case 'dashboard':
@@ -70,7 +78,7 @@ const AuthenticatedApp: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <Header />
       <Navigation currentView={currentView} onViewChange={setCurrentView} />
       <main>
@@ -99,7 +107,7 @@ const AppContent: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-white">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );

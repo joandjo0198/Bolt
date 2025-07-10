@@ -28,12 +28,12 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200">
+    <header className="bg-gradient-to-r from-blue-600 to-blue-800 shadow-lg border-b border-blue-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <h1 className="text-xl font-semibold text-gray-900">
-              Auth System
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+              Cyber CRM
             </h1>
           </div>
 
@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
                 <div className="text-right">
-                  <p className="text-sm font-medium text-gray-900">{user.name}</p>
+                  <p className="text-sm font-medium text-white">{user.name}</p>
                   <div className="flex items-center space-x-1">
                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getRoleColor(user.role)}`}>
                       {getRoleIcon(user.role)}
@@ -49,8 +49,8 @@ export const Header: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <div className="h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-medium">
+                <div className="h-8 w-8 bg-white rounded-full flex items-center justify-center">
+                  <span className="text-blue-600 text-sm font-medium">
                     {user.name.charAt(0).toUpperCase()}
                   </span>
                 </div>
@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
 
               <button
                 onClick={logout}
-                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                className="inline-flex items-center px-3 py-2 border border-blue-400 text-sm leading-4 font-medium rounded-md text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
               >
                 <LogOut className="h-4 w-4 mr-2" />
                 Logout
